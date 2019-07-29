@@ -1,12 +1,29 @@
-const canvas = document.createElement('canvas');
-const c = canvas.getContext('2d');
-canvas.height = innerHeight
-canvas.width = innerWidth
+import Rectangels from "./rectangels";
 
-canvas.style.position = "fixed";
-canvas.style.top = "0px";
-canvas.style.left = "0px";
-canvas.style.background = "lightblue";
+let rectangles: Array<Rectangels> = [];
 
-document.body.appendChild(canvas);
-console.log("HELP ME PLS");
+function init() {
+    for (let i = 0; i < 5; i++) {
+        let scale = 40;
+        let x = scale * i;
+
+        for (let j = 0; j < 5; j++) {
+            let y = scale * j;
+            let color = Math.random() * 11 + 1;
+
+            rectangles.push(new Rectangels(x, y, scale, color));
+            console.log(new Rectangels(x, y, scale, color));
+        }
+    }
+}
+
+function animate() {
+    for(const rect of rectangles) {
+        rect.change_color();
+    }
+
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
