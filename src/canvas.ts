@@ -4,9 +4,6 @@ class Canvas {
 
     constructor() {
         this.c = this.canvas.getContext('2d');
-    }
-
-    public append() {
         this.canvas.height = innerHeight;
         this.canvas.width = innerWidth;
 
