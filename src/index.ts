@@ -15,17 +15,20 @@ function init() {
 
     let scale = 10;
 
+    let zoff = 0;
     let yoff = 0;
-    for (let i = 0; i < canvas.c.canvas.width / scale; i++) {
+    for (let i = 0; i < 50; i++) {
         let xoff = 0;
         let x = scale * i;
-        for (let j = 0; j < canvas.c.canvas.height / scale; j++) {
+        for (let j = 0; j < 50; j++) {
             let y = scale * j;
-            xoff += 0.05;
+            xoff += 0.1;
 
-            rectangles.push(new Rectangles(x, y, scale, xoff, yoff));
+            rectangles.push(new Rectangles(x, y, scale, xoff, yoff, zoff));
         }
-        yoff += 0.05;
+        yoff += 0.1;
+
+        zoff += 0.1
     }
 }
 
